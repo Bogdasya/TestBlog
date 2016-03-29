@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :posts
+  has_many :comments
   validates :name,  presence: true, length: { maximum: 10 }
   validates :email, presence: true, uniqueness: { case_sensitive: false }
   validates :email, presence: true, format: { with: /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/ }, uniqueness: { case_sensitive: false }

@@ -5,6 +5,16 @@ Rails.application.routes.draw do
    match '/signup',  to: 'users#new',            via: 'get'
    match '/signin',  to: 'sessions#new',         via: 'get'
    match '/signout', to: 'sessions#destroy',     via: 'delete'
-   resources :users
+   resources :users do
+     resources :posts
+   end
+
+  resources :posts do
+    resources :comments
+  end
+
+   resources :comments do
+     resources :inner_comments
+   end
 
 end

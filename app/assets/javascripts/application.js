@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$( document ).ready(function() {
+    $("#adding_comment").on('click', function() {
+        $("#comment_for_comment").show();
+    })
+});
+

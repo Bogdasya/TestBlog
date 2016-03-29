@@ -1,0 +1,30 @@
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Title</th>
+    <th>Content</th>
+    <th>Comments</th>
+    <th>Delete</th>
+  </tr>
+  </thead>
+  <% posts.each do |post| %>
+    <tbody>
+    <tr>
+      <td><%= post.id %></td>
+      <td><%= post.title %></td>
+      <td><%= post.content %></td>
+      <td>
+        <%= post.comments.size %> comments
+        <% if post.comments.present? %>
+          <% post.comments.each do |comment|%>
+            <%= comment.comment %>
+            <%= link_to User.find(comment.user.id).name,User.find(comment.user.id) %>
+          <% end %>
+        <% end %>
+      </td>
+      <td><%= link_to 'Delete', post_path(post.id), data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
+    </tr>
+    </tbody>
+  <% end %>
+</table>

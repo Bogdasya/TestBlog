@@ -1,23 +1,14 @@
-<h2>Profile page</h2>
+<% provide(:title, 'Profile Page') %>
+<div class="container">
+  <h1 class="well">Profile page <%= full_name %></h1>
+
 <div class="row">
-	<% if current_user.image.present? %>
-    <%= image_tag current_user.image ,:class=> "img-circular" %>
+	<% if @user.image.present? %>
+    <%= image_tag @user.image, class: "img-circular" %>
   <% end %>
 
-	<%= full_name %>
-
   <div class="span6 offset3">
-    <%= form_for current_user do |f| %>
-
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-
-      <%= f.label :surname %>
-      <%= f.text_field :surname %>
-
-		  <%= f.file_field :image%>
-
-      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
-    <% end %>
+    <%= render 'form_for_update', user: @user  %>
   </div>
 </div>
+	</div>

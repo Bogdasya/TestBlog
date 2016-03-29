@@ -1,0 +1,17 @@
+<div class="media">
+  <% comment.inner_comments.each do |inner_comment| %>
+    <a class="pull-left" href="#">
+      <% if User.find(inner_comment.user_id).image.present? %>
+        <%= image_tag User.find(inner_comment.user_id).image , class: "media-object" %>
+      <% else %>
+        <img class="media-object" src="http://placehold.it/64x64" alt="">
+      <% end %>
+    </a>
+    <div class="media-body">
+      <h4 class="media-heading"><%= User.find(inner_comment.user_id).name %>
+        <small><%= inner_comment.created_at %></small>
+      </h4>
+      <%= inner_comment.content %>
+    </div>
+  <% end %>
+</div>

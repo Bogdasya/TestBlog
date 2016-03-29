@@ -1,0 +1,15 @@
+<%= form_for [current_user, Post.new] do |f| %>
+
+  <%= f.label :author %>
+  <%= f.text_field :author, value: current_user.name, readonly: 'readonly' %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+
+  <%= f.hidden_field :user_id, value: current_user.id%>
+
+  <%= f.submit "Create Post", class: "btn btn-large btn-primary", id: "create_post" %>
+<% end %>

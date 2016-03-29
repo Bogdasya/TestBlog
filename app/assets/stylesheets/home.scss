@@ -1,3 +1,24 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.form-control {
+  width: 100%;
+}
+.registration{
+  width: 50%;
+  margin: 0 auto;
+}
+.well {
+  text-align: center;
+}
+#registration_button{
+  display: block;
+  margin-left: 130px;
+}
+.errors{
+  color: red;
+}
+.media-object{
+  width: 64px;
+  height: 64px;
+}

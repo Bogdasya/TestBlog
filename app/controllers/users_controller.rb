@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :signed_in_user, only: [:update]
 
   def new
     @user = User.new
@@ -15,6 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
   end
 
   def update
@@ -28,6 +30,10 @@ class UsersController < ApplicationController
     current_user.update_attributes(users_params.except(:image))
     flash[:success] = 'Update was successfully'
     redirect_to :back
+  end
+
+  def signed_in_user
+    redirect_to signin_url, notice: "Please sign in." unless signed_in?
   end
 
   private

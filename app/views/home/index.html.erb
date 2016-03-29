@@ -1,1 +1,63 @@
-<h1>Hello world</h1>
+<div class="row">
+	<% @posts.each do |post| %>
+		<div class="col-lg-8">
+      <h1> <%= post.title  %></h1>
+
+      <p class="lead">
+        by <%= link_to post.author, User.find(post.user_id) %>
+      </p>
+
+      <hr>
+
+		  <p>
+		    <span class="glyphicon glyphicon-time"></span> Posted on <%= post.created_at %>
+		  </p>
+
+      <hr>
+
+      <p>
+        <%= post.content %>
+      </p>
+
+	    <% if current_user.present? %>
+				<%= render 'comments', post: post %>
+		  <% end %>
+
+      <div class="media">
+	      <% post.comments.includes(:inner_comments).each do |comment| %>
+          <a class="pull-left" href="#">
+	          <% if User.find(comment.user_id).image.present? %>
+              <%= image_tag User.find(comment.user_id).image , class: "media-object" %>
+		        <% else %>
+              <img class="media-object" src="http://placehold.it/64x64" alt="">
+		        <% end %>
+          </a>
+        <div class="media-body">
+          <h4 class="media-heading">
+	          <%= User.find(comment.user_id).name %>
+            <small><%= comment.created_at %></small>
+          </h4>
+
+          <%= comment.comment %>
+
+          <% if current_user.present? %>
+            <button type="button" class="btn btn-default" id="adding_comment">Adding Comment</button>
+		      <% end %>
+
+        </div>
+
+		    <% if comment.inner_comments.present? %>
+           <%= render 'show_inner', comment: comment%>
+        <% end %>
+      </div>
+
+      <% if current_user.present? %>
+				<%= render 'create_inner_comment', comment: comment %>
+      <% end %>
+
+    <% end %>
+</div>
+    <hr>
+<% end %>
+</div>
+<%= will_paginate @posts %>

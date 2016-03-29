@@ -1,0 +1,13 @@
+<% provide(:title, 'My posts') %>
+<div class="container">
+  <h1 class="well"> My Posts </h1>
+  <div>
+    <h2> Create Post </h2>
+    <%= render 'form_for_post' %>
+  </div>
+
+  <div>
+    <%= render 'table_posts', posts: current_user.posts %>
+	</div>
+
+</div>
