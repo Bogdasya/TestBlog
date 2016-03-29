@@ -50,4 +50,5 @@ group :development do
   gem 'pry-rails'
   gem 'bullet'
 end
+gem 'rails_12factor', group: :production
 
