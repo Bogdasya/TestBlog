@@ -23,9 +23,7 @@ class UsersController < ApplicationController
     if params[:user][:image].present?
       file = params[:user][:image]
       current_user.image = file.original_filename
-      directory_name = "avatars"
-      Dir.mkdir(directory_name) unless File.exists?(directory_name)
-      File.open(Rails.root.join('avatars', file.original_filename), 'wb') do |f|
+      File.open(Rails.root.join('app','assets', 'images', file.original_filename), 'wb') do |f|
         f.write(file.read)
       end
     end

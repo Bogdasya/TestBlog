@@ -4,7 +4,7 @@
 
 <div class="row">
 	<% if @user.image.present? %>
-    <%= image_tag Dir.glob("#{Rails.root}/avatars/#{@user.image}")[0], class: "img-circular" %>
+    <%= image_tag image_path(@user.image), class: "img-circular" %>
   <% end %>
 
   <div class="span6 offset3">
