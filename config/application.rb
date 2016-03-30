@@ -25,5 +25,6 @@ module Blog
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     config.serve_static_assets = true
     config.filepicker_rails.api_key = "ABD4ADbJTSCGoMjXUw0KKz"
+    config.i18n.default_locale = :ru
   end
 end

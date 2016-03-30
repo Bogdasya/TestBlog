@@ -1,11 +1,11 @@
 <%= form_for [post, Comment.new] do |f|%>
   <div class="well">
-    <h4>Leave a Comment:</h4>
+    <h4><%= t('leave_comment') %>:</h4>
     <div class="form-group">
       <%= f.text_area :comment, rows: 3, class: 'form-control' %>
       <%= f.hidden_field :post_id, value: post.id %>
       <%= f.hidden_field :user_id, value: current_user.id %>
     </div>
-    <%= f.submit 'Submit', class: 'btn btn-primary' %>
+    <%= f.submit t('submit'), class: 'btn btn-primary' %>
   </div>
 <% end %>

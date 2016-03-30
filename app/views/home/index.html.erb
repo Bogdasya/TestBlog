@@ -10,7 +10,7 @@
       <hr>
 
 		  <p>
-		    <span class="glyphicon glyphicon-time"></span> Posted on <%= post.created_at %>
+		    <span class="glyphicon glyphicon-time"></span> Posted on <%= post.created_at.strftime('%a, %e %b %Y %H:%M:%S') %>
 		  </p>
 
       <hr>
@@ -35,13 +35,13 @@
         <div class="media-body">
           <h4 class="media-heading">
 	          <%= User.find(comment.user_id).name %>
-            <small><%= comment.created_at %></small>
+            <small><%= comment.created_at.strftime('%a, %e %b %Y %H:%M:%S') %></small>
           </h4>
 
           <%= comment.comment %>
 
           <% if current_user.present? %>
-            <button type="button" class="btn btn-default" id="adding_comment">Adding Comment</button>
+            <button type="button" class="btn btn-default" id="adding_comment"><%= t('adding_comment') %></button>
 		      <% end %>
 
         </div>

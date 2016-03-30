@@ -1,6 +1,8 @@
 <% provide(:title, 'Profile Page') %>
+<%= filepicker_js_include_tag %>
+
 <div class="container">
-  <h1 class="well">Profile page <%= full_name %></h1>
+  <h1 class="well"><%= t('profile_page') %> <%= full_name %></h1>
 
 <div class="row">
 	<% if @user.image.present? %>

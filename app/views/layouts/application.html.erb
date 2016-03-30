@@ -4,7 +4,7 @@
   <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag 'application', media: 'all','data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= filepicker_js_include_tag %>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -14,13 +14,13 @@
       <%= link_to 'Blog', root_path, id: 'logo' %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to 'Home',    root_path %></li>
+          <li><%= link_to t('home'),    root_path %></li>
 	        <% if current_user.present? %>
-            <li><%= link_to 'My page', current_user %></li>
-            <li><%= link_to 'Sign out', signout_path, method: "delete" %></li>
-            <li><%= link_to 'My posts', user_posts_path(current_user) %></li>
+            <li><%= link_to t('my_page'), current_user %></li>
+            <li><%= link_to t('sig_out'), signout_path, method: "delete" %></li>
+            <li><%= link_to t('my_posts'), user_posts_path(current_user) %></li>
 		      <% else %>
-          <li><%= link_to 'Sign in/Registration', new_user_path %></li>
+          <li><%= link_to t('sign_in'), new_user_path %></li>
         <% end %>
         </ul>
       </nav>

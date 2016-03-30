@@ -1,8 +1,8 @@
 <% provide(:title, 'My posts') %>
 <div class="container">
-  <h1 class="well"> My Posts </h1>
+  <h1 class="well"> <%= t('my_posts') %> </h1>
   <div>
-    <h2> Create Post </h2>
+    <h2> <%= t('create_post') %> </h2>
     <%= render 'form_for_post' %>
   </div>
 

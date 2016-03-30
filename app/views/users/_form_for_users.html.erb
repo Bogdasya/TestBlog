@@ -1,17 +1,17 @@
 <%= form_for User.new do |f| %>
 
-  <%= f.label :name %>
+  <%= f.label :name, t('name') %>
   <%= f.text_field :name %>
 
-  <%= f.label :email %>
+  <%= f.label :email, t('email') %>
   <%= f.text_field :email %>
 
-  <%= f.label :password %>
+  <%= f.label :password, t('password') %>
   <%= f.password_field :password %>
 
-  <%= f.label :password_confirmation, "Confirmation Password" %>
+  <%= f.label :password_confirmation, t('confirm_pass') %>
   <%= f.password_field :password_confirmation %>
 
-  <%= f.submit "Create my account", class: "btn btn-large btn-primary", id: "registration_button" %>
+  <%= f.submit t('register'), class: "btn btn-large btn-primary", id: "registration_button" %>
 <% end %>
-<%= link_to "Log In", new_session_url, class: "btn btn-large btn-primary"  %>
+<%= link_to t('login'), new_session_url, class: "btn btn-large btn-primary"  %>
