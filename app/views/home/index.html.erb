@@ -58,8 +58,10 @@
 
     <% end %>
 
-	  <%= link_to t('delete_post'),  post_path(post.id), data: {:confirm => 'Are you sure?'}, :method => :delete, remote: true %>
-</div>
+    <% if current_user.present? %>
+	    <%= link_to t('delete_post'),  post_path(post.id), data: {:confirm => 'Are you sure?'}, :method => :delete, remote: true %>
+		<% end %>
+  </div>
     <hr>
 	</div>
 <% end %>
