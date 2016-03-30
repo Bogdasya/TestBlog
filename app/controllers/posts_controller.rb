@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :signed_in_user, only: [:create, :update]
+  before_action :signed_in_user, only: [:create, :update, :destroy]
 
   def index
 
