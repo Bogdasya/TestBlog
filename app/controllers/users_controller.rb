@@ -21,11 +21,11 @@ class UsersController < ApplicationController
 
   def update
     if params[:user][:image].present?
-      file = params[:user][:image]
-      current_user.image = file.original_filename
-      File.open(Rails.root.join('app','assets', 'images', file.original_filename), 'wb') do |f|
-        f.write(file.read)
-      end
+      #file = params[:user][:image]
+      current_user.image = params[:user][:image]
+      #File.open(Rails.root.join('app','assets', 'images', file.original_filename), 'wb') do |f|
+      #  f.write(file.read)
+      #end
     end
     current_user.update_attributes(users_params.except(:image))
     flash[:success] = 'Update was successfully'

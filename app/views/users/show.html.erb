@@ -4,7 +4,7 @@
 
 <div class="row">
 	<% if @user.image.present? %>
-    <%= image_tag image_path(@user.image), class: "img-circular" %>
+    <%= filepicker_image_tag @user.image, w: 160, h: 160, fit: 'clip'%>
   <% end %>
 
   <div class="span6 offset3">
