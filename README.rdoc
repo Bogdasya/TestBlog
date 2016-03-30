@@ -6,7 +6,7 @@ I used
 
 * Heroku
 
-* filepicker for upload images in heroku, but in UsersController is rows for upload without gem
+* I use filepicker for upload images in heroku, but in UsersController is rows for upload without gem
 
 * Link is https://frozen-brook-35841.herokuapp.com/
 
