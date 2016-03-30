@@ -22,11 +22,13 @@ class PostsController < ApplicationController
   def destroy
     post = Post.find(params[:id])
     if post.delete
-      flash[:success] = 'Post was successfully delete'
+      @error = false
     else
-      flash[:alert] = 'Error'
+      @error = true
     end
-    redirect_to :back
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update

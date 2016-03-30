@@ -1,0 +1,12 @@
+if ($('.table').length > 0) {
+	$('.table').replaceWith('<%= j render 'table_posts', posts: current_user.posts %>');
+}
+else{
+	var post = "post <%= params[:id] %>"
+	document.getElementById(post).remove();
+}
+<% if @error%>
+	$('.navbar-inner').append("<div class='alert alert-danger'><strong> Error</strong></div>");
+<% else %>
+	$('.navbar-inner').append("<div class='alert alert-success'><strong> Succsses </strong> </div>");
+<% end %>

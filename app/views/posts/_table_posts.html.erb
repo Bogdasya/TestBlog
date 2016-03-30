@@ -1,4 +1,4 @@
-<table class="table table-bordered">
+<table class="table table-bordered" id="myTable">
   <thead>
   <tr>
     <th>#</th>
@@ -23,7 +23,7 @@
           <% end %>
         <% end %>
       </td>
-      <td><%= link_to 'Delete', post_path(post.id), data: {:confirm => 'Are you sure?'}, :method => :delete %></td>
+      <td><%= link_to t('delete_post'), post_path(post.id), data: {:confirm => 'Are you sure?'}, :method => :delete, remote: true %></td>
     </tr>
     </tbody>
   <% end %>
