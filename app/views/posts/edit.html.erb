@@ -1,0 +1,9 @@
+<% provide(:title, 'Edit Post') %>
+<div class="container">
+  <h1 class="well"> <%= @post.title %> </h1>
+  <div>
+    <h2> <%= t('update_post') %> </h2>
+    <%= render 'update_post', post: @post %>
+  </div>
+
+</div>

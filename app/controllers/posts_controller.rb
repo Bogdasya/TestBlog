@@ -32,7 +32,14 @@ class PostsController < ApplicationController
   end
 
   def update
+    post = Post.find(params[:id])
+    post.update_attributes(post_params)
+    flash[:success] = 'Update was successfully'
+    redirect_to user_posts_path(current_user)
+  end
 
+  def edit
+    @post = Post.find(params[:id])
   end
 
   def signed_in_user
